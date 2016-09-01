@@ -1,4 +1,5 @@
 <?php
+/*   Student Model - Main Model Class */
 class student_model extends CI_Model
 {
     public function insert_data($data){
@@ -72,14 +73,14 @@ class student_model extends CI_Model
            }
 
      public function single_record($id){
-      $this->db->select('*');
-      $this->db->form('student_details sd');
-      $this->db->where('sd.sid',$id);
-      $query = $this->db->get();
-      $data['student']= $query->result();
-      $data['skills'] = $this->getStudentSkills($id);
-      $data['courses'] = $this-> getStudentCourses ($id);
-    return $data;
+             $this->db->select('*');
+             $this->db->form('student_details sd');
+             $this->db->where('sd.sid',$id);
+             $query = $this->db->get();
+             $data['student']= $query->result();
+           $data['skills'] = $this->getStudentSkills($id);
+           $data['courses'] = $this-> getStudentCourses ($id);
+          return $data;
 
                //$query=$this->db->query("SELECT *,concat(first_name,' ',last_name) as name FROM student_details sd
                                          //inner join address ad on sd.zipcode=ad.zipcode
